@@ -191,9 +191,10 @@ def main(argv):
     nframe = int(totaltime/0.01)
     dframe = int(timestep/0.01)
     ln1l = [0 for i in range(gt)]
-    distl = []
+    
     mvl = [0 for i in range(gt)]
     for i in range(nframe-dframe):
+        distl = []
         print nframe, i
         data1 = lines[(9+i*(9+natoms)):(i+1)*(9+natoms)]
         data2 = lines[(9+(i+dframe)*(9+natoms)):(i+dframe+1)*(9+natoms)]
@@ -203,10 +204,10 @@ def main(argv):
         npl2 = process_data(data2,box,dicn)
         #ln are the list of atom index at each grid point, index start from 0
         for k in range(len(npl1)):
-            distl.append(dis(npl1[i],npl2[i],boxl))
+            distl.append(dis(npl1[k],npl2[k],boxl))
         ln1 = grid_list(npl1, box, boxl,g, gt)
         for k in range(len(ln1)):
-			ln1l[k]+=len(ln1[k])
+            ln1l[k]+=len(ln1[k])
         #print gt, len(ln1)
         for k in range(len(ln1)):
             temp = 0
