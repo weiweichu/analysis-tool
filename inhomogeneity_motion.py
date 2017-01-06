@@ -219,7 +219,7 @@ def main(argv):
             mvl[k]+=temp
     
     mvl = map(lambda x:x/float(nframe-dframe),mvl)
-    ln1l = map(lambda x: int(x/float(nframe-dframe)),ln1l)
+    ln1l = map(lambda x: x/float(nframe-dframe),ln1l)
     ln1l = np.asarray(ln1l)
     ln1l = ln1l/ln1l.sum()
     out = open(output,'w')
